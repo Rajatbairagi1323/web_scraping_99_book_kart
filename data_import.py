@@ -11,14 +11,13 @@ cursor = conn.cursor()
 
 # Create a table to store book details
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS romance_book (
+    CREATE TABLE IF NOT EXISTS historical_fiction (
     isbn VARCHAR(255)PRIMARY KEY,
     name VARCHAR(255) PRIMARY KEY, 
     language VARCHAR(255),
     author VARCHAR(255),
     publisher VARCHAR(255),
     price FLOAT,
-    #image VARCHAR(255),
     pages INT,
     rating FLOAT
 )
@@ -45,7 +44,7 @@ with open('/home/rajat/Desktop/web_scrap/historical_fiction.csv', 'r') as book_f
         print(data)
 
         cursor.execute('''
-            INSERT INTO romance_book (isbn, name, language, author, publisher, price, pages, rating)
+            INSERT INTO historical_fiction (isbn, name, language, author, publisher, price, pages, rating)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         ''', data)
 
